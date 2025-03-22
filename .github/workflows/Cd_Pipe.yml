@@ -124,9 +124,9 @@ jobs:
     needs: deploy_backend
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v2
+      - uses: actions/setup-java@v4
         with:
-          java-version: '11'
+          java-version: '17'
           distribution: 'temurin'
           cache: maven
       - run: mvn test -Dtest=CalculatorTests
@@ -156,7 +156,7 @@ jobs:
     needs: [deploy_backend, deploy_front_end, lighthouse_check]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v2
+      - uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
