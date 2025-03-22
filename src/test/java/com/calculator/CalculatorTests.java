@@ -11,8 +11,6 @@ public class CalculatorTests {
         given()
             .contentType("application/json")
             .body("{ \"operation\": \"add\", \"number1\": 10, \"number2\": 20 }")
-        .when()
-            .post("http://playground1.azurewebsites.net/calculate")
         .then()
             .statusCode(200)
             .body("result", is(30.0F));
