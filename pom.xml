@@ -21,8 +21,8 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>com.CalculatorApplication</start-class>
-        <java.version>11</java.version>
+        <start-class>com.calculator.CalculatorApplication</start-class>
+        <java.version>17</java.version>
         <lombok.version>1.18.20</lombok.version>
         <coverage.need>0.5</coverage.need>
     </properties>
