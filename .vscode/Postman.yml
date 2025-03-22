@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Wait for 10 seconds
         run: sleep 10s
