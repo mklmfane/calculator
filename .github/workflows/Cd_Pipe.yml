@@ -1,4 +1,4 @@
-name: CD Workflow
+name: CD Workflow  # <-- Put this at the top, above 'on'
 
 on:
   workflow_dispatch:
@@ -24,6 +24,7 @@ jobs:
         with:
           name: java-app
           path: ${{ github.workspace }}/target/*.jar
+
 
   deploy_backend:
     runs-on: ubuntu-latest
