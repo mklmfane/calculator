@@ -25,8 +25,6 @@ export default function () {
     'Content-Type': 'application/json',
   };
 
-  let response = http.post('https://playground1.azurewebsites.net/calculate', payload, { headers: headers });
-
   check(response, {
     'is status 200': (r) => r.status === 200,  // Check for HTTP 200 response
   });
