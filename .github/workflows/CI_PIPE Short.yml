@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Unit Tests
-        run: echo "Running unit tests..." # Replace with your unit test command
+        run: mvn clean test
 
   run-coverage:
     needs: run-unit-tests
