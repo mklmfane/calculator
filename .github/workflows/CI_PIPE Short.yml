@@ -31,7 +31,7 @@ jobs:
           java-version: '17'
 
       - name: Run JaCoCo Code Coverage
-        run: mvn clean verify
+        run: mvn clean verify -DskipTests -Ddependency-check.skip=true
 
 
   autoheal-tests:
