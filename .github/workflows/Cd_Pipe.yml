@@ -1,40 +1,29 @@
 name: CD Workflow
 
-# on:
-#   pull_request:
-#     branches:
-#       - master
-#     types:
-#       - closed
-
-# on:
-#   schedule:
-#     # Runs at 9 PM UTC every day
-#     - cron: '0 21 * * *'
-
 on:
   workflow_dispatch:
 
 jobs:
   build:
-  
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-          
+
       - name: Build with Maven
-        run: mvn clean install "-DskipTests" "-Djacoco.skip=true" "-Ddependency-check.skip=true"
+        run: mvn clean install -DskipTests -Djacoco.skip=true -Ddependency-check.skip=true
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: ${{ github.workspace }}/target/*.jar
 
   deploy_backend:
     runs-on: ubuntu-latest
