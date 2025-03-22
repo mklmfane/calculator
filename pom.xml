@@ -192,6 +192,7 @@
                         </goals>
                         <configuration>
                             <failBuildOnCVSS>11</failBuildOnCVSS>
+                            <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled> <!-- disables .NET analyzer -->
                         </configuration>
                     </execution>
                 </executions>
