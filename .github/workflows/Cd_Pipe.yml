@@ -20,7 +20,7 @@ jobs:
         run: mvn clean install -DskipTests -Djacoco.skip=true -Ddependency-check.skip=true
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: java-app
           path: target/*.jar
@@ -32,7 +32,7 @@ jobs:
       name: 'Production'
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3.0.2
         with:
           name: java-app
 
@@ -105,7 +105,7 @@ jobs:
         with:
           filename: src/test/K6/perftest.js
           flags: --out json=results.json
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3.1.3
         with:
           name: k6-report
           path: results.json
@@ -123,7 +123,7 @@ jobs:
           wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.tgz
           tar -xzf apache-jmeter-5.4.1.tgz
           apache-jmeter-5.4.1/bin/jmeter -n -t src/test/Jmeter/Test.jmx -l test_results.jtl
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3.1.3
         with:
           name: jmeter-results
           path: test_results.jtl
@@ -140,7 +140,7 @@ jobs:
           cache: maven
       - run: mvn test -Dtest=CalculatorTests
       - run: mvn surefire-report:report
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3.1.3
         with:
           name: surefire-reports
           path: target/site/surefire-report.html
@@ -155,7 +155,7 @@ jobs:
           node-version: 20
       - run: npm install -g newman newman-reporter-html
       #- run: newman run src/test/Postman_Tests/Calculate.postman_collection.json -r html --reporter-html-export report.html
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3.1.3
         with:
           name: postman-report
           path: report.html
