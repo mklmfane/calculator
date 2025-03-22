@@ -33,6 +33,7 @@ jobs:
       - name: Run JaCoCo Code Coverage
         run: mvn clean verify
 
+
   autoheal-tests:
     needs: run-coverage
     if: failure() && needs.run-coverage.result == 'failure'
