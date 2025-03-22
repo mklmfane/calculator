@@ -18,9 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Coverage
-        run: |
-            echo "Running coverage..." # Replace with your actual coverage command
-            exit 1 # This command causes the job to fail 
+        run: mvn clean verify
 
   autoheal-tests:
     needs: run-coverage
