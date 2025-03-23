@@ -104,7 +104,7 @@ jobs:
           filename: ${{ github.workspace }}/src/test/K6/perftest.js
           flags: --out json=results.json
       - name: Upload performance test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: k6-report
           path: results.json
